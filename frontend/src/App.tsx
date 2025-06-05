@@ -1,13 +1,25 @@
-import React from "react";
-import WeatherDisplay from "./components/WeatherDisplay";
+import React from 'react'
+import MainLayout from './components/layout/MainLayout'
+import NavigationBar from './components/layout/NavigationBar'
 
-const App: React.FC = () => {
+const App = () => {
+  const handleSearch = (term: string) => {
+    console.log('Searching for:', term)
+  }
+
+  const handleUnitToggle = () => {
+    console.log('Toggling temperature unit')
+  }
+
   return (
-    <div>
-      <h1>Weather App</h1>
-      <WeatherDisplay />
-    </div>
-  );
-};
+    <MainLayout>
+      <NavigationBar 
+        onSearch={handleSearch}
+        onUnitToggle={handleUnitToggle}
+      />
+      {/* More components will be added here */}
+    </MainLayout>
+  )
+}
 
-export default App;
+export default App
